@@ -1,5 +1,9 @@
 #include"Character.h"
 #include<iostream>
+#ifndef CHARACTER_CPP_
+#define CHARACTER_CPP_
+
+
 
 Character::Character(){
 	speed_ = 0;
@@ -8,26 +12,16 @@ Character::Character(){
 Character::~Character(){
 }
 void Character::Accelerate(){
-	if(speed_ < max_speed_){
-		speed_+=1;
+	speed_+=1;
+	if(speed_ >= max_speed_){
+		speed_=10;
 	}
 }
 void Character::Break(){
-	if(speed_ > 0){
-		speed_-=1;	
+	speed_-=1;
+	if(speed_ <= 0){
+		speed_=0;	
 	}
 }
-void Character::display(){
-	cout<<speed_;
-}
-void Yoshi::Accelerate(){
-        if(speed_ < max_speed_){
-		speed_+=2;
-        }
-}
-Yoshi::Yoshi(int val){
-	nb_crests_=new int(val);
-}
-Yoshi::~Yoshi(){
-	delete nb_crests_;
-}
+#endif // CHARACTER_CPP
+

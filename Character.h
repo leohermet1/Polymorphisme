@@ -9,7 +9,6 @@ using namespace std;
 class Character{
 protected:
 	float speed_, max_speed_;
-	int *nb_crests_;
 public:
 	inline float speed() const;
 	Character();
@@ -22,16 +21,5 @@ public:
 float Character::speed() const{
 	return speed_;
 }
-class Mario : public Character{
-public:
-        std::string WhatAmI() const override {return "Mario";}
-};
-class Yoshi : public Character{
-public:
-        std::string WhatAmI() const override {return "Yoshi";}
-	virtual void Accelerate() override;
-	Yoshi(int);
-	~Yoshi();
-};
 
 #endif // CHARACTER_H
